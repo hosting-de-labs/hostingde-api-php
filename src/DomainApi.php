@@ -8,9 +8,7 @@ class DomainApi extends GenericApi {
 	public function contactsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
-		$json = json_encode($data);
-
-		$this->send('contactsFind', $json);
+		$this->send('contactsFind', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -27,9 +25,7 @@ class DomainApi extends GenericApi {
 	public function contactInfo($contactId) {
 		$data = array('authToken' => $this->authToken, 'contactId' => $contactId);
 
-		$json = json_encode($data);
-
-		$this->send('contactInfo', $json);
+		$this->send('contactInfo', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -39,9 +35,7 @@ class DomainApi extends GenericApi {
 	public function contactCreate($contact) {
 		$data = array('authToken' => $this->authToken, 'contact' => $contact);
 
-		$json = json_encode($data);
-
-		$this->send('contactCreate', $json);
+		$this->send('contactCreate', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -51,9 +45,7 @@ class DomainApi extends GenericApi {
 	public function contactUpdate($contact, $actingAs = 'designatedAgent') {
 		$data = array('authToken' => $this->authToken, 'contact' => $contact, 'actingAs' => $actingAs);
 
-		$json = json_encode($data);
-
-		$this->send('contactUpdate', $json);
+		$this->send('contactUpdate', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -63,9 +55,7 @@ class DomainApi extends GenericApi {
 	public function domainsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
-		$json = json_encode($data);
-
-		$this->send('domainsFind', $json);
+		$this->send('domainsFind', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -82,9 +72,7 @@ class DomainApi extends GenericApi {
 	public function domainInfo($domainName) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName);
 
-		$json = json_encode($data);
-
-		$this->send('domainInfo', $json);
+		$this->send('domainInfo', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -94,9 +82,7 @@ class DomainApi extends GenericApi {
 	public function domainStatus($domainNames) {
 		$data = array('authToken' => $this->authToken, 'domainNames' => $domainNames);
 
-		$json = json_encode($data);
-
-		$this->send('domainStatus', $json);
+		$this->send('domainStatus', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -113,9 +99,7 @@ class DomainApi extends GenericApi {
 	public function domainCreate($domain) {
 		$data = array('authToken' => $this->authToken, 'domain' => $domain);
 
-		$json = json_encode($data);
-
-		$this->send('domainCreate', $json);
+		$this->send('domainCreate', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -125,9 +109,7 @@ class DomainApi extends GenericApi {
 	public function domainUpdate($domain, $actingAs = 'designatedAgent') {
 		$data = array('authToken' => $this->authToken, 'domain' => $domain, 'actingAs' => $actingAs);
 
-		$json = json_encode($data);
-
-		$this->send('domainUpdate', $json);
+		$this->send('domainUpdate', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -137,9 +119,7 @@ class DomainApi extends GenericApi {
 	public function domainDelete($domainName, $execDate = NULL) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName, 'execDate' => $execDate);
 
-		$json = json_encode($data);
-
-		$this->send('domainDelete', $json);
+		$this->send('domainDelete', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -149,9 +129,7 @@ class DomainApi extends GenericApi {
 	public function domainWithdraw($domainName, $disconnect = false, $execDate = NULL) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName, 'disconnect' => $disconnect, 'execDate' => $execDate);
 
-		$json = json_encode($data);
-
-		$this->send('domainWithdraw', $json);
+		$this->send('domainWithdraw', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -161,9 +139,7 @@ class DomainApi extends GenericApi {
 	public function domainTransfer($domain, $transferData) {
 		$data = array('authToken' => $this->authToken, 'domain' => $domain, 'transferData' => $transferData);
 
-		$json = json_encode($data);
-
-		$this->send('domainTransfer', $json);
+		$this->send('domainTransfer', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -173,9 +149,7 @@ class DomainApi extends GenericApi {
 	public function domainTransferOutAck($domainName) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName);
 
-		$json = json_encode($data);
-
-		$this->send('domainTransferOutAck', $json);
+		$this->send('domainTransferOutAck', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -185,9 +159,7 @@ class DomainApi extends GenericApi {
 	public function domainTransferOutNack($domainName) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName);
 
-		$json = json_encode($data);
-
-		$this->send('domainTransferOutNack', $json);
+		$this->send('domainTransferOutNack', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -197,9 +169,7 @@ class DomainApi extends GenericApi {
 	public function domainRestore($domainName) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName);
 
-		$json = json_encode($data);
-
-		$this->send('domainRestore', $json);
+		$this->send('domainRestore', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -209,9 +179,7 @@ class DomainApi extends GenericApi {
 	public function domainCreateAuthInfo2($domainName) {
 		$data = array('authToken' => $this->authToken, 'domainName' => $domainName);
 
-		$json = json_encode($data);
-
-		$this->send('domainCreateAuthInfo2', $json);
+		$this->send('domainCreateAuthInfo2', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}

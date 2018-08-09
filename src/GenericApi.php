@@ -20,7 +20,8 @@ class GenericApi {
 		$this->__construct($this->authToken);
 	}
 
-	protected function send($function, $json) {
+	protected function send($function, $data) {
+		$json = json_encode($data);
 		$ch = curl_init($this->location."/".$function);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
