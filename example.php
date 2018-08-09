@@ -7,8 +7,6 @@ $useContact = 'Handle, bspw. XX1234';
 $useDomain = 'Domainname, bspw. example.com';
 
 $api = new DomainApi('ApiKey');
-// http.net Kunden muessen die http.net Location ansprechen
-// $api->resetLocation("https://partner.http.net/api/domain/v1/json");
 
 if ($check = $api->domainStatus(array("example.de", "example.com", "123.hosting"))) {
 	// print_r($check);
