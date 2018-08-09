@@ -21,7 +21,7 @@ class DomainApi extends GenericApi {
 			}
 			return $return;
 		}
-		return NULL;
+		return array();
 	}
 
 	public function contactInfo($contactId) {
@@ -76,7 +76,7 @@ class DomainApi extends GenericApi {
 			}
 			return $return;
 		}
-		return NULL;
+		return array();
 	}
 
 	public function domainInfo($domainName) {
@@ -107,7 +107,7 @@ class DomainApi extends GenericApi {
 			}
 			return $return;
 		}
-		return NULL;
+		return array();
 	}
 
 	public function domainCreate($domain) {
