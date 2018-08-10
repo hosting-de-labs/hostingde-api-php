@@ -10,6 +10,7 @@ This is a PHP client library for the hosting.de API.
 - E-Mail (tbd)
 - Webhosting (tbd)
 - Database (tbd)
+- Machine (tbd)
 
 Keep in mind: At the moment we have not implemented any job or task API functions.
 
