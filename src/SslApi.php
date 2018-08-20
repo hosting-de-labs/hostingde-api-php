@@ -44,6 +44,9 @@ class SslApi extends GenericApi {
 
 	public function orderCreate($order) {
 		$data = array('authToken' => $this->authToken, 'order' => $order);
+		if (isset($order->accountId)) {
+			$data['ownerAccountId'] = $order->accountId;
+		}
 
 		$this->send("orderCreate", $data);
 		if ($this->getStatus() == "error") {

@@ -34,6 +34,9 @@ class DomainApi extends GenericApi {
 
 	public function contactCreate($contact) {
 		$data = array('authToken' => $this->authToken, 'contact' => $contact);
+		if (isset($contact->accountId)) {
+			$data['ownerAccountId'] = $contact->accountId;
+		}
 
 		$this->send('contactCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -98,6 +101,9 @@ class DomainApi extends GenericApi {
 
 	public function domainCreate($domain) {
 		$data = array('authToken' => $this->authToken, 'domain' => $domain);
+		if (isset($domain->accountId)) {
+			$data['ownerAccountId'] = $domain->accountId;
+		}
 
 		$this->send('domainCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -138,6 +144,9 @@ class DomainApi extends GenericApi {
 
 	public function domainTransfer($domain, $transferData) {
 		$data = array('authToken' => $this->authToken, 'domain' => $domain, 'transferData' => $transferData);
+		if (isset($domain->accountId)) {
+			$data['ownerAccountId'] = $domain->accountId;
+		}
 
 		$this->send('domainTransfer', $data);
 		if ($this->getStatus() == "error") {
