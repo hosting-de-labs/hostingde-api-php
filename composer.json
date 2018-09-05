@@ -1,0 +1,30 @@
+{
+    "name": "hostingde/api-php",
+    "description": "PHP API for hosting.de",
+    "type": "project",
+    "keywords": [
+        "hosting.de",
+        "API"
+    ],
+    "homepage": "https://www.hosting.de/",
+    "license": "BSD 2-Clause Simplified License",
+    "authors": [
+        {
+            "name": "hosting.de Dev Team",
+            "email": "info@hosting.de",
+            "homepage": "https://www.hosting.de/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "docs": "https://github.com/hosting-de-labs/hostingde-api-php",
+        "email": "support@hosting.de"
+        "issues": "https://github.com/hosting-de-labs/hostingde-api-php/issues",
+        "source": "https://github.com/hosting-de-labs/hostingde-api-php"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.0"
+    }
+}
