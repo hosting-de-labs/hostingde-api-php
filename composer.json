@@ -18,7 +18,7 @@
     ],
     "support": {
         "docs": "https://github.com/hosting-de-labs/hostingde-api-php",
-        "email": "support@hosting.de"
+        "email": "support@hosting.de",
         "issues": "https://github.com/hosting-de-labs/hostingde-api-php/issues",
         "source": "https://github.com/hosting-de-labs/hostingde-api-php"
     },
