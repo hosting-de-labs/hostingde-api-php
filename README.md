@@ -12,7 +12,25 @@ This is a PHP client library for the hosting.de API.
 - Database (tbd)
 - Machine (tbd)
 
-Keep in mind: At the moment we have not implemented any job or task API functions.
+Keep in mind: At the moment we have not implemented any job or task API functions. This software is released as a beta. Use it in production on your own risk.
+
+### Using Composer
+
+You can now use composer to get the library, just edit your composer.json:
+
+```
+        "repositories": [
+                {
+                        "url": "https://github.com/hosting-de-labs/hostingde-api-php.git",
+                        "type": "git"
+                }
+        ],
+        "minimum-stability": "dev",
+        "prefer-stable": true,
+        "require": {
+                "hostingde/api-php": "*"
+        }
+```
 
 ## Getting Status of query and errors
 
@@ -160,6 +178,9 @@ $contact is false if an error occurs, otherwise it is a Contact Object.
 - [https://www.hosting.de/api/#listing-domains](https://www.hosting.de/api/#listing-domains)
 
 ```
+$filter = new Filter();
+$filter->addFilter('DomainName', 'example.com');
+
 $domains = $api->domainsFind($filter);
 ```
 $domains is false if an error occurs, otherwise it is an array with Domain Objects.
@@ -211,7 +232,7 @@ Just create a new Domain Object, a new TransferData Object and call domainTransf
 
 ```
 $domain = new Domain();
-$domain->set('name', 'example.com'):
+$domain->set('name', 'example.com');
 $domain->addContact('owner', $contactId);
 $domain->addContact('admin', $contactId);
 $domain->addContact('tech', $contactId);
@@ -235,7 +256,6 @@ $domain = $api->domainUpdate($domain);
 ```
 One can use addContact() to replace a contact. $domain is false if an error occurs, otherwise it is a Domain Object.
 
-
 ### Deleting or withdrawing a domainname
 
 - [https://www.hosting.de/api/#deleting-domains](https://www.hosting.de/api/#deleting-domains)
@@ -247,5 +267,105 @@ $return = $api->domainWithdraw($domainName, $disconnect, $execDate);
 ```
 
 $execDate can be a date in the future if you want to set a scheduled deletion. $disconnect is true or false, it disconnects the domainname from DNS if true. $return is true or false.
+
+## DNS
+
+Available fields for filtering and sorting:
+- [https://www.hosting.de/api/#list-zoneconfigs](https://www.hosting.de/api/#list-zoneconfigs)
+- [https://www.hosting.de/api/#listing-records](https://www.hosting.de/api/#listing-records)
+- [https://www.hosting.de/api/#listing-zones](https://www.hosting.de/api/#listing-zones)
+
+```
+namespace Hostingde\API;
+require_once("require.php");
+
+$api = new DnsApi('ApiKey');
+```
+
+### Zone Objects
+
+- [https://www.hosting.de/api/#the-zone-object](https://www.hosting.de/api/#the-zone-object)
+
+### Listing Zones
+
+- [https://www.hosting.de/api/#listing-zones](https://www.hosting.de/api/#listing-zones)
+
+A Zone contains a ZoneConfig Object and an Array of Record Objects.
+
+```
+$filter = new Filter();
+$filter->addFilter('ZoneName', 'example.com');
+
+$zones = $api->zonesFind($filter);
+```
+$zones is false if an error occurs, otherwise it is an array with Zone Objects.
+
+### ZoneConfig Objects
+
+- [https://www.hosting.de/api/#the-zoneconfig-object](https://www.hosting.de/api/#the-zoneconfig-object)
+
+### Listing ZoneConfigs
+
+- [https://www.hosting.de/api/#listing-zoneconfigs](https://www.hosting.de/api/#listing-zoneconfigs)
+
+```
+$filter = new Filter();
+$filter->addFilter('ZoneName', 'example.com');
+
+$zoneConfigs = $api->zoneConfigsFind($filter);
+```
+$zoneConfigs is false if an error occurs, otherwise it is an array with ZoneConfig Objects.
+
+### Record Objects
+
+- [https://www.hosting.de/api/#the-record-object](https://www.hosting.de/api/#the-record-object)
+
+### Listing Records
+
+- [https://www.hosting.de/api/#listing-records](https://www.hosting.de/api/#listing-records)
+
+```
+$filter = new Filter();
+$filter->addFilter('RecordName', 'www.example.com');
+$filter->addFilter('RecordType', 'A');
+
+$records = $api->recordsFind($filter);
+```
+$records is false if an error occurs, otherwise it is an array with Record Objects.
+
+### Creating Zones
+
+- [https://www.hosting.de/api/#creating-new-zones](https://www.hosting.de/api/#creating-new-zones)
+
+Note: We will soon provide better construction of objects, e.g. an addRecord() Method.
+
+```
+$zoneConfig = new ZoneConfig();
+$zoneConfig->set('name', 'example.com');
+$zoneConfig->set('type', 'NATIVE');
+
+$record1 = new Record();
+$record1->set('name', 'example.com');
+$record1->set('type', 'A');
+$record1->set('content', '127.0.0.1');
+
+$record2 = new Record();
+$record2->set('name', 'example.com');
+$record2->set('type', 'MX');
+$record2->set('content', 'example.com');
+
+$zone = new Zone();
+$zone->set('zoneConfig', $zoneConfig);
+$zone->set('records', array($record1, $record2));
+
+$zone = $api->zoneCreate($zone);
+```
+$zone is false if an error occurs, otherwise it is a Zone Object (it has now an ID).
+
+### more DNS Stuff
+
+.. is implemented in the library but unitl now I had no time do document it here, sorry.
+
+
 
 ###### Please see example.php for more functions.
