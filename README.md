@@ -354,13 +354,74 @@ $record2->set('name', 'example.com');
 $record2->set('type', 'MX');
 $record2->set('content', 'example.com');
 
-$zone = new Zone();
-$zone->set('zoneConfig', $zoneConfig);
-$zone->set('records', array($record1, $record2));
-
-$zone = $api->zoneCreate($zone);
+$zone = $api->zoneCreate($zoneConfig, array($record1, $record2));
 ```
 $zone is false if an error occurs, otherwise it is a Zone Object (it has now an ID).
+
+### Recreating Zones
+
+- [https://www.hosting.de/api/#creating-new-zones](https://www.hosting.de/api/#creating-new-zones)
+
+Use recreateZone if you want to submit a complete Record Set for the Zone.
+
+```
+$zoneConfig = new ZoneConfig();
+$zoneConfig->set('name', 'example.com');
+
+$record1 = new Record();
+$record1->set('name', 'example.com');
+$record1->set('type', 'A');
+$record1->set('content', '127.0.0.1');
+
+$record2 = new Record();
+$record2->set('name', 'example.com');
+$record2->set('type', 'MX');
+$record2->set('content', 'example.com');
+
+$zone = $api->zoneRecreate($zoneConfig, array($record1, $record2));
+```
+$zone is false if an error occurs, otherwise it is a Zone Object.
+
+### Updating Zones
+
+- [https://www.hosting.de/api/#creating-new-zones](https://www.hosting.de/api/#creating-new-zones)
+
+Use updateZone if you want to add or remove one or more records.
+
+```
+$zoneConfig = new ZoneConfig();
+$zoneConfig->set('name', 'example.com');
+
+$recordOld = new Record();
+$recordOld->set('name', 'example.com');
+$recordOld->set('type', 'MX');
+$recordOld->set('content', 'example.com');
+
+$recordNew = new Record();
+$recordNew->set('name', 'example.com');
+$recordNew->set('type', 'MX');
+$recordNew->set('content', 'mail.hosting.de');
+
+$zone = $api->zoneUpdate($zoneConfig, array($recordNew), array($recordOld));
+```
+$zone is false if an error occurs, otherwise it is a Zone Object.
+
+## Deleting Zones
+
+- [https://www.hosting.de/api/#deleting-zones](https://www.hosting.de/api/#deleting-zones)
+
+Deleting with a Zones Name:
+
+```
+$query = $api->zoneDelete(NULL, 'example.com');
+```
+
+Deleting with an ID:
+```
+$query = $api->zoneDelete('000000000000000');
+```
+$query is false if an error occurs, otherwise it is true.
+
 
 ### more DNS Stuff
 
