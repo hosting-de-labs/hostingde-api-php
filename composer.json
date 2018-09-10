@@ -28,6 +28,6 @@
         "php": ">=7.0"
     },
     "autoload": {
-        "psr-0": { "Hostingde\API": "src/" }
+        "psr-0": { "Hostingde\\API": "src/" }
     }
 }
