@@ -5,6 +5,7 @@ namespace Hostingde\API;
 class Webspace extends GenericObject {
 	public $id;
 	public $accountId;
+	public $bundleId;
 	public $name;
 	public $webspaceName;
 	public $productCode;
