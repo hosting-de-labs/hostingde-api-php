@@ -2,6 +2,6 @@
 
 namespace Hostingde\API;
 
-class DomainApi extends GenericApi {
+class BundleApi extends GenericApi {
 	protected $location = 'https://secure.hosting.de/api/bundle/v1/json';
 }
