@@ -11,7 +11,6 @@ class Bundle extends GenericObject {
 	public $effectiveContingentUsage = array();
 	public $purchasedContingentExtensions = array();
 	public $productCode;
-	public $nameservers = array();
 	public $status;
 	public $paidUntil;
 	public $renewOn;

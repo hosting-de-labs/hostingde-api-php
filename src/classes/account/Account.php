@@ -5,7 +5,7 @@ namespace Hostingde\API;
 class Account extends GenericObject {
 	public $id;
 	public $parentAccountId;
-	public $type;
+	public $type = "Subaccount";
 	public $rightsTemplateId;
 	public $isCommercialCustomer;
 	public $customerNumber;
