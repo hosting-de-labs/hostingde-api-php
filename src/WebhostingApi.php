@@ -48,4 +48,14 @@ class WebhostingApi extends GenericApi {
 		}
 		return new Webspace($this->getValue());
 	}
+
+	public function vhostUpdate($vhost, $phpIni) {
+		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni);
+
+		$this->send('vhostUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Vhost($this->getValue());
+	}
 }
