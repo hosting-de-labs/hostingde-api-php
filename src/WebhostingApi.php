@@ -38,4 +38,14 @@ class WebhostingApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function webspaceUpdate($webspace) {
+		$data = array('authToken' => $this->authToken, 'webspace' => $webspace);
+
+		$this->send('webspaceUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Webspace($this->getValue());
+	}
 }
