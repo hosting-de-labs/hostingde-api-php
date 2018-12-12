@@ -99,6 +99,17 @@ class DnsApi extends GenericApi {
 		return true;
 	}
 
+	public function zonesMove($zoneNames, $toAccountId) {
+		$data = array('authToken' => $this->authToken, 'zoneNames' => $zoneNames, 'toAccountId' => $toAccountId);
+
+		$this->send('zonesMove', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+
 	public function changeContent($recordType, $oldContent, $newContent, $includeTemplates = false, $includeSubAccounts = false) {
 		$data = array('authToken' => $this->authToken, 'recordType' => $recordType, 'oldContent' => $oldContent, 'newContent' => $newContent, 'includeTemplates' => $includeTemplates, 'includeSubAccounts' => $includeSubAccounts);
 
