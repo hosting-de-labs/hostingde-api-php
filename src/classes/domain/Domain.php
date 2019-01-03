@@ -4,6 +4,7 @@ namespace Hostingde\API;
 
 class Domain extends GenericObject {
 	public $accountId;
+	public $bundleId;
 	public $id;
 	public $name;
 	public $nameUnicode;
