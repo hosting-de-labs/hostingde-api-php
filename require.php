@@ -28,6 +28,13 @@ require_once __DIR__ . '/src/classes/webhosting/Vhost.php';
 require_once __DIR__ . '/src/classes/webhosting/WebspaceAccess.php';
 require_once __DIR__ . '/src/classes/webhosting/Webspace.php';
 
+require_once __DIR__ . '/src/classes/email/Mailbox.php';
+require_once __DIR__ . '/src/classes/email/MailingList.php';
+require_once __DIR__ . '/src/classes/email/ImapMailbox.php';
+require_once __DIR__ . '/src/classes/email/ExchangeMailbox.php';
+require_once __DIR__ . '/src/classes/email/Forwarder.php';
+require_once __DIR__ . '/src/classes/email/CatchAll.php';
+
 require_once __DIR__ . '/src/GenericApi.php';
 require_once __DIR__ . '/src/DomainApi.php';
 require_once __DIR__ . '/src/DnsApi.php';
