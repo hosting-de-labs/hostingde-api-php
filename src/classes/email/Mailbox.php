@@ -20,6 +20,6 @@ class Mailbox extends GenericObject {
 	public $restorableUntil;
 	public $restrictions;
 	public $spamFilter;
+	public $autoResponder;
 	public $status;
-	public $type;
 }

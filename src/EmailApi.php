@@ -23,12 +23,45 @@ class EmailApi extends GenericApi {
 		return array();
 	}
 
-	public function mailboxDeletePermanently($mailboxId) {
+	public function mailboxCreate($mailbox) {
+		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox);
+		if (isset($mailbox->accountId)) {
+			$data['ownerAccountId'] = $mailbox->accountId;
+		}
+
+		$this->send('mailboxCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		$className = "\\Hostingde\\API\\".$mailbox->type;
+		return new $className($this->getValue());
+	}
+
+	public function mailboxUpdate($mailbox) {
+		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox);
+
+		$this->send('mailboxUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		$className = "\\Hostingde\\API\\".$mailbox->type;
+		return new $className($this->getValue());
+	}
+
+	public function mailboxDelete($emailAddress, $execDate = NULL) {
+		$data = array('authToken' => $this->authToken, 'emailAddress' => $emailAddress, 'execDate' => $execDate);
+
+		$this->send('mailboxDelete', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function mailboxRestore($mailboxId) {
 		$data = array("authToken" => $this->authToken, "mailboxId" => $mailboxId);
 
-		$json = json_encode($data);
-
-		$this->send("mailboxDeletePermanently", $json);
+		$this->send("mailboxRestore", $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
@@ -38,9 +71,7 @@ class EmailApi extends GenericApi {
 	public function mailboxPurgeRestorable($mailboxId) {
 		$data = array("authToken" => $this->authToken, "mailboxId" => $mailboxId);
 
-		$json = json_encode($data);
-
-		$this->send("mailboxPurgeRestorable", $json);
+		$this->send("mailboxPurgeRestorable", $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}

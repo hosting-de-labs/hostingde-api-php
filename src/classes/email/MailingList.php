@@ -3,6 +3,7 @@
 namespace Hostingde\API;
 
 class Mailinglist extends Mailbox {
+	public $type = "MailingList";
 	public $name;
 	public $members;
 	public $subjectPrefix;
