@@ -77,4 +77,57 @@ class EmailApi extends GenericApi {
 		}
 		return true;
 	}
+
+	public function organizationsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('organizationsFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $organization) {
+				$return[] = new Organization($organization);
+			}
+			return $return;
+		}
+		return array();
+	}
+
+	public function organizationCreate($organization) {
+		$data = array('authToken' => $this->authToken, 'organization' => $organization);
+		if (isset($mailbox->accountId)) {
+			$data['ownerAccountId'] = $organization->accountId;
+		}
+
+		$this->send('organizationCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Organization($this->getValue());
+	}
+
+	public function organizationUpdate($organization) {
+		$data = array('authToken' => $this->authToken, 'organization' => $organization);
+		if (isset($mailbox->accountId)) {
+			$data['ownerAccountId'] = $organization->accountId;
+		}
+
+		$this->send('organizationUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Organization($this->getValue());
+	}
+
+	public function organizationDelete($organizationId) {
+		$data = array('authToken' => $this->authToken, 'organizationId' => $organizationId);
+
+		$this->send('organizationDelete', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
