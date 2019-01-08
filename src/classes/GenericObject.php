@@ -9,7 +9,10 @@ class GenericObject {
 				$this->set($key, $object->{$key});
 			}
 		}
+		$this->_load();
 	}
+
+	public function _load() { }
 
 	public function get($key) {
 		return $this->{$key};

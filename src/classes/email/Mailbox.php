@@ -21,4 +21,9 @@ class Mailbox extends GenericObject {
 	public $restrictions;
 	public $spamFilter;
 	public $status;
+
+	public function _load() {
+		$this->autoResponder = new AutoResponder();
+		$this->spamFilter = new SpamFilter();
+	}
 }

@@ -4,6 +4,14 @@ require_once __DIR__ . '/src/classes/GenericObject.php';
 require_once __DIR__ . '/src/classes/Filter.php';
 require_once __DIR__ . '/src/classes/Sort.php';
 
+require_once __DIR__ . '/src/classes/account/Account.php';
+require_once __DIR__ . '/src/classes/account/BillingSettings.php';
+require_once __DIR__ . '/src/classes/account/DnsSettings.php';
+require_once __DIR__ . '/src/classes/account/DomainSettings.php';
+require_once __DIR__ . '/src/classes/account/MessageSettings.php';
+require_once __DIR__ . '/src/classes/account/ResellerBillingSettings.php';
+require_once __DIR__ . '/src/classes/account/WhiteLabelSettings.php';
+
 require_once __DIR__ . '/src/classes/domain/Contact.php';
 require_once __DIR__ . '/src/classes/domain/Domain.php';
 require_once __DIR__ . '/src/classes/domain/DomainStatus.php';
@@ -35,8 +43,11 @@ require_once __DIR__ . '/src/classes/email/ExchangeMailbox.php';
 require_once __DIR__ . '/src/classes/email/Forwarder.php';
 require_once __DIR__ . '/src/classes/email/CatchAll.php';
 require_once __DIR__ . '/src/classes/email/Organization.php';
+require_once __DIR__ . '/src/classes/email/AutoResponder.php';
+require_once __DIR__ . '/src/classes/email/SpamFilter.php';
 
 require_once __DIR__ . '/src/GenericApi.php';
+require_once __DIR__ . '/src/AccountApi.php';
 require_once __DIR__ . '/src/DomainApi.php';
 require_once __DIR__ . '/src/DnsApi.php';
 require_once __DIR__ . '/src/EmailApi.php';

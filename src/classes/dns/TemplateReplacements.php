@@ -2,7 +2,7 @@
 
 namespace Hostingde\API;
 
-class TemplatesReplacements extends GenericObject {
+class TemplateReplacements extends GenericObject {
 	public $ipv4Replacement;
 	public $ipv6Replacement;
 	public $mailIpv4Replacement;
