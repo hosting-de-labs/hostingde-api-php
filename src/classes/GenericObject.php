@@ -4,12 +4,17 @@ namespace Hostingde\API;
 
 class GenericObject {
 	public function __construct($object = NULL) {
+		$this->_load();
 		if ($object) {
 			foreach(get_object_vars($this) as $key => $default) {
-				$this->set($key, $object->{$key});
+				if (is_object($this->{$key})) {
+					$className = get_class($this->{$key});
+					$this->{$key} = new $className($object->{$key});
+				} else {
+					$this->set($key, $object->{$key});
+				}
 			}
 		}
-		$this->_load();
 	}
 
 	public function _load() { }
