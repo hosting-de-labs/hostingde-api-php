@@ -39,6 +39,19 @@ class WebhostingApi extends GenericApi {
 		return array();
 	}
 
+	public function webspaceCreate($webspace, $accesses, $webserverId) {
+		$data = array("authToken" => $this->authToken, "webspace" => $webspace, "accesses" => $accesses, "webserverId" => $webserverId);
+		if (isset($webspace->accountId)) {
+			$data['ownerAccountId'] = $webspace->accountId;
+		}
+
+		$this->send("webspaceCreate", $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Webspace($this->getValue());
+	}
+
 	public function webspaceUpdate($webspace, $accesses) {
 		$data = array('authToken' => $this->authToken, 'webspace' => $webspace, 'accesses' => $accesses);
 
@@ -57,5 +70,18 @@ class WebhostingApi extends GenericApi {
 			return false;
 		}
 		return new Vhost($this->getValue());
+	}
+
+	public function userCreate($user) {
+		$data = array('authToken' => $this->authToken, 'user' => $user);
+		if (isset($user->accountId)) {
+			$data['ownerAccountId'] = $user->accountId;
+		}
+
+		$this->send('userCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new User($this->getValue());
 	}
 }

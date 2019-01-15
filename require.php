@@ -32,6 +32,7 @@ require_once __DIR__ . '/src/classes/ssl/CertificateContact.php';
 require_once __DIR__ . '/src/classes/ssl/CertificateOrder.php';
 
 require_once __DIR__ . '/src/classes/webhosting/CronJob.php';
+require_once __DIR__ . '/src/classes/webhosting/User.php';
 require_once __DIR__ . '/src/classes/webhosting/Vhost.php';
 require_once __DIR__ . '/src/classes/webhosting/WebspaceAccess.php';
 require_once __DIR__ . '/src/classes/webhosting/Webspace.php';
