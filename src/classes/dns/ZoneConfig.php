@@ -14,10 +14,9 @@ class ZoneConfig extends GenericObject {
 	public $zoneTransferWhitelist;
 	public $lastChangeDate;
 	public $soaValues;
-	public $templateValues;
+	public $templateValues = NULL;
 
 	public function _load() {
 		$this->soaValues = new SOAValues();
-		$this->templateValues = new TemplateValues();
 	}
 }
