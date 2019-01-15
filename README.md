@@ -7,7 +7,7 @@ This is a PHP client library for the hosting.de API.
 - Domain (full)
 - DNS (full)
 - SSL (DV only)
-- E-Mail (tbd)
+- E-Mail (full)
 - Webhosting (tbd)
 - Database (tbd)
 - Machine (tbd)

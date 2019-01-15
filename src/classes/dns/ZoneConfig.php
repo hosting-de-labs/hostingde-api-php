@@ -17,7 +17,7 @@ class ZoneConfig extends GenericObject {
 	public $templateValues;
 
 	public function _load() {
-		$this->soaValues = new SoaValues();
+		$this->soaValues = new SOAValues();
 		$this->templateValues = new TemplateValues();
 	}
 }
