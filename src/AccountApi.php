@@ -21,4 +21,13 @@ class AccountApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function subaccountCreate($subaccount, $adminUser, $password) {
+		$data = array('authToken' => $this->authToken, 'subaccount' => $subaccount, 'adminUser' => $adminUser, 'password' => $password);
+		$this->send('subaccountCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Account($this->getValue());
+	}
 }
