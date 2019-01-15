@@ -62,6 +62,19 @@ class WebhostingApi extends GenericApi {
 		return new Webspace($this->getValue());
 	}
 
+	public function vhostCreate($vhost) {
+		$data = array('authToken' => $this->authToken, 'vhost' => $vhost);
+		if (isset($user->accountId)) {
+			$data['ownerAccountId'] = $vhost->accountId;
+		}
+
+		$this->send('vhostCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Vhost($this->getValue());
+	}
+
 	public function vhostUpdate($vhost, $phpIni) {
 		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni);
 
