@@ -12,4 +12,5 @@ class User extends GenericObject {
 	public $sshKey;
 	public $status;
 	public $userName;
+	public $password;
 }
