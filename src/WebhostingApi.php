@@ -72,8 +72,8 @@ class WebhostingApi extends GenericApi {
 		return new Vhost($this->getValue());
 	}
 
-	public function userCreate($user) {
-		$data = array('authToken' => $this->authToken, 'user' => $user);
+	public function userCreate($user, $password) {
+		$data = array('authToken' => $this->authToken, 'user' => $user, 'password' => $password);
 		if (isset($user->accountId)) {
 			$data['ownerAccountId'] = $user->accountId;
 		}
