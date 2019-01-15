@@ -47,6 +47,10 @@ require_once __DIR__ . '/src/classes/email/Organization.php';
 require_once __DIR__ . '/src/classes/email/AutoResponder.php';
 require_once __DIR__ . '/src/classes/email/SpamFilter.php';
 
+require_once __DIR__ . '/src/classes/database/Database.php';
+require_once __DIR__ . '/src/classes/database/DatabaseAccess.php';
+require_once __DIR__ . '/src/classes/database/DatabaseUser.php';
+
 require_once __DIR__ . '/src/GenericApi.php';
 require_once __DIR__ . '/src/AccountApi.php';
 require_once __DIR__ . '/src/DomainApi.php';
@@ -54,3 +58,4 @@ require_once __DIR__ . '/src/DnsApi.php';
 require_once __DIR__ . '/src/EmailApi.php';
 require_once __DIR__ . '/src/SslApi.php';
 require_once __DIR__ . '/src/WebhostingApi.php';
+require_once __DIR__ . '/src/DatabaseApi.php';
