@@ -10,6 +10,8 @@ class GenericApi {
 
 	protected $transactionId = NULL;
 
+	protected $jsonOutputOnly = false;
+
 	function __construct($authToken) {
 		$this->authToken = $authToken;
 	}
@@ -20,19 +22,28 @@ class GenericApi {
 		$this->__construct($this->authToken);
 	}
 
+	public function debugJson()
+	{
+		$this->jsonOutputOnly = true;
+	}
+
 	protected function send($function, $data) {
 		$json = json_encode($data);
-		$ch = curl_init($this->location."/".$function);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-			'Content-Type: application/json',
-			'Content-Length: ' . strlen($json))
-		);
-
-		$response = curl_exec($ch);
-		$this->lastResponse = json_decode($response);
+		if ($this->jsonOutputOnly) {
+			echo $json;
+		} else {
+			$ch = curl_init($this->location."/".$function);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				'Content-Type: application/json',
+				'Content-Length: ' . strlen($json))
+			);
+	
+			$response = curl_exec($ch);
+			$this->lastResponse = json_decode($response);
+		}
 	}
 
 	public function getStatus()
