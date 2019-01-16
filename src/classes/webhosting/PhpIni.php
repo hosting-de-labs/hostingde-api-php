@@ -6,7 +6,12 @@ class PhpIni extends GenericObject {
 	public $values = array();
 	public $vhostId;
 
-	public function add($key, $value) {
-		$this->values[$key] = $value;
+	public function set($key, $var) {
+		foreach($this->values as $id => $setting) {
+			if (isset($setting[$key])) {
+				unset($this->values[$id]);
+			}
+		}
+		$this->values = array_merge($this->values, array(array($key => $var)));
 	}
 }
