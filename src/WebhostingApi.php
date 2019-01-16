@@ -62,9 +62,9 @@ class WebhostingApi extends GenericApi {
 		return new Webspace($this->getValue());
 	}
 
-	public function vhostCreate($vhost) {
-		$data = array('authToken' => $this->authToken, 'vhost' => $vhost);
-		if (isset($user->accountId)) {
+	public function vhostCreate($vhost, $phpIni, $setHttpUserPasswords = [], $sslPrivateKey = NULL) {
+		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni, 'setHttpUserPasswords' => $setHttpUserPasswords, 'sslPrivateKey' => $sslPrivateKey);
+		if (isset($vhost->accountId)) {
 			$data['ownerAccountId'] = $vhost->accountId;
 		}
 
@@ -75,8 +75,8 @@ class WebhostingApi extends GenericApi {
 		return new Vhost($this->getValue());
 	}
 
-	public function vhostUpdate($vhost, $phpIni) {
-		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni);
+	public function vhostUpdate($vhost, $phpIni, $setHttpUserPasswords = [], $sslPrivateKey = NULL) {
+		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni, 'setHttpUserPasswords' => $setHttpUserPasswords, 'sslPrivateKey' => $sslPrivateKey);
 
 		$this->send('vhostUpdate', $data);
 		if ($this->getStatus() == "error") {
