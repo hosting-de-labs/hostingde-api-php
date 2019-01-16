@@ -30,7 +30,7 @@ class GenericApi {
 	protected function send($function, $data) {
 		$json = json_encode($data);
 		if ($this->jsonOutputOnly) {
-			echo json_encode(json_encode($json), JSON_PRETTY_PRINT);
+			echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 		} else {
 			$ch = curl_init($this->location."/".$function);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
