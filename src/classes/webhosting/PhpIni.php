@@ -6,7 +6,7 @@ class PhpIni extends GenericObject {
 	public $values = array();
 	public $vhostId;
 
-	public function set($key, $var) {
+	public function set($key, $value) {
 		foreach($this->values as $id => $setting) {
 			if ($setting->key == $key) {
 				unset($this->values[$id]);
