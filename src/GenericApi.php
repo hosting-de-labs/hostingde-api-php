@@ -22,15 +22,15 @@ class GenericApi {
 		$this->__construct($this->authToken);
 	}
 
-	public function debugJson()
+	public function debugJson($value = true)
 	{
-		$this->jsonOutputOnly = true;
+		$this->jsonOutputOnly = $value;
 	}
 
 	protected function send($function, $data) {
 		$json = json_encode($data);
 		if ($this->jsonOutputOnly) {
-			echo $json;
+			echo json_encode(json_encode($json), JSON_PRETTY_PRINT);
 		} else {
 			$ch = curl_init($this->location."/".$function);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
