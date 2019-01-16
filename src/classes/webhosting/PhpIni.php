@@ -12,10 +12,9 @@ class PhpIni extends GenericObject {
 				unset($this->values[$id]);
 			}
 		}
-		//$this->values = array_merge($this->values, array(array($key => $var)));
 		$phpIniValue = new PhpIniValue();
 		$phpIniValue->key = $key;
 		$phpIniValue->value = $value;
-		$this->values[] = $phpIniValue;
+		$this->values = array_merge($this->values, array($phpIniValue));
 	}
 }
