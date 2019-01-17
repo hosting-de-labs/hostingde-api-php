@@ -15,6 +15,7 @@ class ZoneConfig extends GenericObject {
 	public $lastChangeDate;
 	public $soaValues;
 	public $templateValues = NULL;
+	public $dnsServerGroupId;
 
 	public function _load() {
 		$this->soaValues = new SOAValues();
