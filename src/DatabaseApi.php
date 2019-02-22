@@ -35,6 +35,19 @@ class DatabaseApi extends GenericApi {
 		return new Database($this->getValue());
 	}
 
+	public function databaseUpdate($database, $accesses) {
+		$data = array("authToken" => $this->authToken, "database" => $database, "accesses" => $accesses);
+		if (isset($database->accountId)) {
+			$data['ownerAccountId'] = $database->accountId;
+		}
+
+		$this->send('databaseUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Database($this->getValue());
+	}
+
 	public function usersFind($filter, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
