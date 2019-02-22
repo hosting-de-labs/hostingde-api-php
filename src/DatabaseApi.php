@@ -74,4 +74,14 @@ class DatabaseApi extends GenericApi {
 		}
 		return new DatabaseUser($this->getValue());
 	}
+
+	public function userDelete($userId) {
+		$data = array('authToken' => $this->authToken, 'userId' => $userId);
+		
+		$this->send('userDelete', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
