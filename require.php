@@ -3,6 +3,8 @@
 require_once __DIR__ . '/src/classes/GenericObject.php';
 require_once __DIR__ . '/src/classes/Filter.php';
 require_once __DIR__ . '/src/classes/Sort.php';
+require_once __DIR__ . '/src/classes/TriggeredBy.php';
+require_once __DIR__ . '/src/classes/Job.php';
 
 require_once __DIR__ . '/src/classes/account/Account.php';
 require_once __DIR__ . '/src/classes/account/BillingSettings.php';

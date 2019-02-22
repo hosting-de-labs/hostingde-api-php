@@ -93,4 +93,22 @@ class GenericApi {
 		}
 		return false;
 	}
+
+	public function jobsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('jobsFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $job) {
+				$return[] = new Job($job);
+			}
+			return $return;
+		}
+		return array();
+	}
 }
