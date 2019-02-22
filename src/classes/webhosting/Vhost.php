@@ -20,5 +20,6 @@ class Vhost extends GenericObject {
 	public $sslSettings;
 	public $phpVersion;
 	public $addDate;
+	public $httpUsers;
 	public $lastChangeDate;
 }
