@@ -104,7 +104,7 @@ class WebhostingApi extends GenericApi {
 			$data['ownerAccountId'] = $user->accountId;
 		}
 
-		$this->send('userCreate', $data);
+		$this->send('userDelete', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
