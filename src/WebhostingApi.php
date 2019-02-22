@@ -97,4 +97,17 @@ class WebhostingApi extends GenericApi {
 		}
 		return new User($this->getValue());
 	}
+
+	public function userDelete($userId) {
+		$data = array('authToken' => $this->authToken, 'userId' => $userId);
+		if (isset($user->accountId)) {
+			$data['ownerAccountId'] = $user->accountId;
+		}
+
+		$this->send('userCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
