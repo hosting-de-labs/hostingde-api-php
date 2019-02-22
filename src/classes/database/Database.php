@@ -12,6 +12,7 @@ class Database extends GenericObject {
 	public $forceSsl;
 	public $hostName;
 	public $limitations;
+	public $name;
 	public $poolId;
 	public $renewOn;
 	public $restrictions;

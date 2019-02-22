@@ -37,9 +37,6 @@ class DatabaseApi extends GenericApi {
 
 	public function databaseUpdate($database, $accesses) {
 		$data = array("authToken" => $this->authToken, "database" => $database, "accesses" => $accesses);
-		if (isset($database->accountId)) {
-			$data['ownerAccountId'] = $database->accountId;
-		}
 
 		$this->send('databaseUpdate', $data);
 		if ($this->getStatus() == "error") {
