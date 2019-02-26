@@ -7,7 +7,6 @@ class Job extends GenericObject {
 	public $action;
 	public $addDate;
 	public $clientTransactionId;
-	public $displayName;
 	public $id;
 	public $lastChangeDate;
 	public $objectId;
