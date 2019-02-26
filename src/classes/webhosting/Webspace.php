@@ -15,6 +15,7 @@ class Webspace extends GenericObject {
 	public $status;
 	public $accesses = array();
 	public $serverIpv4;
+	public $serverIpv6;
 	public $cronJobs = array();
 	public $paidUntil;
 	public $deletionScheduledFor;
