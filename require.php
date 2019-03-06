@@ -61,3 +61,5 @@ require_once __DIR__ . '/src/EmailApi.php';
 require_once __DIR__ . '/src/SslApi.php';
 require_once __DIR__ . '/src/WebhostingApi.php';
 require_once __DIR__ . '/src/DatabaseApi.php';
+require_once __DIR__ . '/src/BillingApi.php';
+require_once __DIR__ . '/src/ProductApi.php';
