@@ -14,6 +14,11 @@ class GenericObject {
 					$this->set($key, $object->{$key});
 				}
 			}
+			foreach(get_object_vars($object) as $key => $default) {
+				if (!isset($this->{$key})) {
+					$this->set($key, $object->{$key});
+				}
+			}
 		}
 	}
 
