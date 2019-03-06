@@ -53,6 +53,8 @@ require_once __DIR__ . '/src/classes/database/Database.php';
 require_once __DIR__ . '/src/classes/database/DatabaseAccess.php';
 require_once __DIR__ . '/src/classes/database/DatabaseUser.php';
 
+require_once __DIR__ . '/src/classes/billing/ArticlePurchasePrice.php';
+
 require_once __DIR__ . '/src/GenericApi.php';
 require_once __DIR__ . '/src/AccountApi.php';
 require_once __DIR__ . '/src/DomainApi.php';
