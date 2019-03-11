@@ -92,7 +92,7 @@ class DnsApi extends GenericApi {
 	public function zoneDelete($zoneConfigId = NULL, $zoneName = NULL) {
 		$data = array('authToken' => $this->authToken, 'zoneConfigId' => $zoneConfigId, 'zoneName' => $zoneName);
 
-		$this->send('zoneUpdate', $data);
+		$this->send('zoneDelete', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
