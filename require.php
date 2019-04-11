@@ -13,6 +13,7 @@ require_once __DIR__ . '/src/classes/account/DomainSettings.php';
 require_once __DIR__ . '/src/classes/account/MessageSettings.php';
 require_once __DIR__ . '/src/classes/account/ResellerBillingSettings.php';
 require_once __DIR__ . '/src/classes/account/WhiteLabelSettings.php';
+require_once __DIR__ . '/src/classes/account/AccountUser.php';
 
 require_once __DIR__ . '/src/classes/domain/Contact.php';
 require_once __DIR__ . '/src/classes/domain/Domain.php';
