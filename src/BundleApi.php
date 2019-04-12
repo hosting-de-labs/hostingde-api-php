@@ -22,8 +22,8 @@ class BundleApi extends GenericApi {
 		return array();
 	}
 
-	public function bundleProductsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
-		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+	public function bundleProductsFind($ownerAccountId, $filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'ownerAccountId' => $ownerAccountId, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
 		$this->send('bundleProductsFind', $data);
 		if ($this->getStatus() == "error") {
