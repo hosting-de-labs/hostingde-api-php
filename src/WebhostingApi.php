@@ -75,7 +75,7 @@ class WebhostingApi extends GenericApi {
 		return new Vhost($this->getValue());
 	}
 
-	public function vhostUpdate($vhost, $phpIni, $setHttpUserPasswords = [], $sslPrivateKey = NULL) {
+	public function vhostUpdate($vhost, $phpIni = NULL, $setHttpUserPasswords = [], $sslPrivateKey = NULL) {
 		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni, 'setHttpUserPasswords' => $setHttpUserPasswords, 'sslPrivateKey' => $sslPrivateKey);
 
 		$this->send('vhostUpdate', $data);
