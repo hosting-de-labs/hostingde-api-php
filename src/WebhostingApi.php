@@ -110,4 +110,14 @@ class WebhostingApi extends GenericApi {
 		}
 		return true;
 	}
+
+	public function checkAutoValidationCapable($names, $ownerAccountId, $productCode) {
+		$data = array('authToken' => $this->authToken, 'names' => $names, 'ownerAccountId' => $ownerAccountId, 'productCode' => $productCode);
+
+		$this->send('checkAutoValidationCapable', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
