@@ -47,4 +47,13 @@ class AccountApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function userRequestPasswordReset($emailAddress) {
+		$data = array('emailAddress' => $emailAddress);
+		$this->send('userRequestPasswordReset', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
