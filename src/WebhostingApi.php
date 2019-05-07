@@ -110,4 +110,14 @@ class WebhostingApi extends GenericApi {
 		}
 		return true;
 	}
+
+	public function vhostAssociateManagedSsl($vhostId, $certificateId) {
+		$data = array('authToken' => $this->authToken, 'vhostId' => $vhostId, 'certificateId' => $certificateId);
+
+		$this->send('vhostAssociateManagedSsl', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }

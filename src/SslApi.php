@@ -84,4 +84,14 @@ class SslApi extends GenericApi {
 		}
 		return true;
 	}
+
+	public function certificatesMove($certificateIds, $toAccountId) {
+		$data = array('authToken' => $this->authToken, 'certificateIds' => $certificateIds, 'toAccountId' => $toAccountId);
+
+		$this->send('certificatesMove', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
