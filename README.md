@@ -360,13 +360,16 @@ $zone is false if an error occurs, otherwise it is a Zone Object (it has now an 
 
 ### Recreating Zones
 
-- [https://www.hosting.de/api/#creating-new-zones](https://www.hosting.de/api/#creating-new-zones)
+- [https://www.hosting.de/api/#recreating-new-zones](https://www.hosting.de/api/#recreating-new-zones)
 
-Use recreateZone if you want to submit a complete Record Set for the Zone.
+Use recreateZone if you want to submit a complete Record Set for the Zone. The zoneConfig has to be the complete zoneConfig Object, therefore we retrieve it with ZoneConfigsFind. You may change values within the ZoneConfig if you want. If so, the ZoneConfig will also be updated.
 
 ```
-$zoneConfig = new ZoneConfig();
-$zoneConfig->set('name', 'example.com');
+$filter = new Filter();
+$filter->addFilter('ZoneName', 'example.com');
+
+$zoneConfigs = $api->zoneConfigsFind($filter);
+$zoneConfig = $zoneConfigs[0];
 
 $record1 = new Record();
 $record1->set('name', 'example.com');
@@ -384,13 +387,16 @@ $zone is false if an error occurs, otherwise it is a Zone Object.
 
 ### Updating Zones
 
-- [https://www.hosting.de/api/#creating-new-zones](https://www.hosting.de/api/#creating-new-zones)
+- [https://www.hosting.de/api/#updating-zones](https://www.hosting.de/api/#updating-zones)
 
-Use updateZone if you want to add or remove one or more records.
+Use updateZone if you want to add or remove one or more records. The zoneConfig has to be the complete zoneConfig Object, therefore we retrieve it with ZoneConfigsFind. You may change values within the ZoneConfig if you want. If so, the ZoneConfig will also be updated.
 
 ```
-$zoneConfig = new ZoneConfig();
-$zoneConfig->set('name', 'example.com');
+$filter = new Filter();
+$filter->addFilter('ZoneName', 'example.com');
+
+$zoneConfigs = $api->zoneConfigsFind($filter);
+$zoneConfig = $zoneConfigs[0];
 
 $recordOld = new Record();
 $recordOld->set('name', 'example.com');
