@@ -23,7 +23,7 @@ class Webspace extends GenericObject {
 	public $addDate;
 	public $lastChangeDate;
 	public $includedPhpExecutionTime;
-	public $includedPhpMemoryLimit;
+	public $includedPhpMemory;
 	public $phpExecutionTime;
-	public $phpMemoryLimit;
+	public $phpMemory;
 }
