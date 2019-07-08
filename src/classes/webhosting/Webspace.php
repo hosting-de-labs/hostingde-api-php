@@ -22,4 +22,8 @@ class Webspace extends GenericObject {
 	public $restorableUntil;
 	public $addDate;
 	public $lastChangeDate;
+	public $includedPhpExecutionTime;
+	public $includedPhpMemoryLimit;
+	public $phpExecutionTime;
+	public $phpMemoryLimit;
 }
