@@ -48,10 +48,10 @@ class AccountApi extends GenericApi {
 		return array();
 	}
 
-	public function rightTemplatesFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+	public function rightsTemplatesFind($filter, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
-		$this->send('rightTemplatesFind', $data);
+		$this->send('rightsTemplatesFind', $data);
 		if ($this->getStatus() == "error") {
 			return false;
 		}
