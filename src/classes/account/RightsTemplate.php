@@ -7,8 +7,8 @@ class RightsTemplate extends GenericObject {
 	public $accountId;
 	public $name;
 	public $comments;
+	public $usableByCurrentAccount;
 	public $usableForSubaccounts;
-	public $usableForApiKeys;
 	public $usableForUsers;
 	public $rights;
 }
