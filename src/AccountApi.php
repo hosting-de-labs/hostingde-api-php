@@ -48,6 +48,32 @@ class AccountApi extends GenericApi {
 		return array();
 	}
 
+	public function rightTemplatesFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('rightTemplatesFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $rightsTemplate) {
+				$return[] = new RightsTemplate($rightsTemplate);
+			}
+			return $return;
+		}
+		return array();
+	}
+
+	public function rightsTemplateCreate($rightsTemplate) {
+		$data = array('authToken' => $this->authToken, 'rightsTemplate' => $rightsTemplate);
+		$this->send('rightsTemplateCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new RightsTemplate($this->getValue());
+	}
+
 	public function userRequestPasswordReset($emailAddress) {
 		$data = array('emailAddress' => $emailAddress);
 		$this->send('userRequestPasswordReset', $data);
