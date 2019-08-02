@@ -7,8 +7,6 @@ class ResellerBillingSettings extends GenericObject {
 	public $availablePaymentMethods = array();
 	public $defaultCreditLimitForSubaccounts;
 	public $endUserCancellationPolicy;
-	public $payPalUser;
 	public $retailMarkup;
 	public $showEndUserCancellationPolicyAboveAmount;
-	public $stripePublicApiKey;
 }
