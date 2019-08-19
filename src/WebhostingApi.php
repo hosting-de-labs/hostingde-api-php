@@ -85,6 +85,39 @@ class WebhostingApi extends GenericApi {
 		return new Vhost($this->getValue());
 	}
 
+	public function redirectionCreate($redirection) {
+		$data = array('authToken' => $this->authToken, 'redirection' => $redirection);
+		if (isset($user->accountId)) {
+			$data['ownerAccountId'] = $user->accountId;
+		}
+
+		$this->send('redirectionCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Redirection($this->getValue());
+	}
+
+	public function redirectionUpdate($redirection) {
+		$data = array('authToken' => $this->authToken, 'redirection' => $redirection);
+
+		$this->send('redirectionUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new Redirection($this->getValue());
+	}
+
+	public function redirectionDelete($redirectionId) {
+		$data = array('authToken' => $this->authToken, 'redirectionId' => $redirectionId);
+
+		$this->send('redirectionDelete', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
 	public function userCreate($user, $password) {
 		$data = array('authToken' => $this->authToken, 'user' => $user, 'password' => $password);
 		if (isset($user->accountId)) {
