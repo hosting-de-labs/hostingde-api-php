@@ -39,6 +39,7 @@ require_once __DIR__ . '/src/classes/webhosting/User.php';
 require_once __DIR__ . '/src/classes/webhosting/Vhost.php';
 require_once __DIR__ . '/src/classes/webhosting/WebspaceAccess.php';
 require_once __DIR__ . '/src/classes/webhosting/Webspace.php';
+require_once __DIR__ . '/src/classes/webhosting/Redirection.php';
 
 require_once __DIR__ . '/src/classes/email/Mailbox.php';
 require_once __DIR__ . '/src/classes/email/MailingList.php';
