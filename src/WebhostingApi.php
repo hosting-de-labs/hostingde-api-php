@@ -87,8 +87,8 @@ class WebhostingApi extends GenericApi {
 
 	public function redirectionCreate($redirection) {
 		$data = array('authToken' => $this->authToken, 'redirection' => $redirection);
-		if (isset($user->accountId)) {
-			$data['ownerAccountId'] = $user->accountId;
+		if (isset($redirection->accountId)) {
+			$data['ownerAccountId'] = $redirection->accountId;
 		}
 
 		$this->send('redirectionCreate', $data);
