@@ -108,8 +108,8 @@ class WebhostingApi extends GenericApi {
 		return new Redirection($this->getValue());
 	}
 
-	public function redirectionDelete($redirectionId) {
-		$data = array('authToken' => $this->authToken, 'redirectionId' => $redirectionId);
+	public function redirectionDelete($domainName, $redirectionId = NULL) {
+		$data = array('authToken' => $this->authToken, 'domainName' => $domainName, 'redirectionId' => $redirectionId);
 
 		$this->send('redirectionDelete', $data);
 		if ($this->getStatus() == "error") {
