@@ -2,7 +2,7 @@
 
 namespace Hostingde\API;
 
-class NetworkInterface extends GenericObject {
+class IpAddress extends GenericObject {
 	public $ip;
 	public $gateway;
 	public $netmask;
