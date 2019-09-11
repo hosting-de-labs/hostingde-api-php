@@ -40,4 +40,22 @@ class BillingApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function priceListDomains($ownerAccountId = NULL) {
+		$data = array('authToken' => $this->authToken, 'ownerAccountId' => $ownerAccountId);
+
+		$this->send('priceListDomains', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $domainPrice) {
+				$return[] = new DomainPrice($domainPrice);
+			}
+			return $return;
+		}
+		return array();
+	}
 }
