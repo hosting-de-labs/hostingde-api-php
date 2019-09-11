@@ -22,4 +22,22 @@ class BillingApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function renewableObjectsFind($filter, $limit = 50, $page = 1, $ownerAccountId = NULL, $skipPagination = false) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'ownerAccountId' => $ownerAccountId, 'skipPagination' => $skipPagination);
+
+		$this->send('renewableObjectsFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $renewableObject) {
+				$return[] = new RenewableObject($renewableObject);
+			}
+			return $return;
+		}
+		return array();
+	}
 }
