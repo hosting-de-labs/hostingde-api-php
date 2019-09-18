@@ -5,7 +5,7 @@ namespace Hostingde\API;
 class ResourceApi extends GenericApi {
 	protected $location = 'https://secure.hosting.de/api/resource/v1/json';
 
-	public function resourcesFind($poolId, $resourceType, $filter, $limit = 50, $page = 1, $sort = NULL) {
+	public function resourcesFind($poolId, $resourceType, $filter = NULL, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'poolId' => $poolId, 'resourceType' => $resourceType, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
 		$this->send('resourcesFind', $data);
