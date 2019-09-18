@@ -22,8 +22,8 @@ class DatabaseApi extends GenericApi {
 		return array();
 	}
 
-	public function databaseCreate($database, $accesses) {
-		$data = array("authToken" => $this->authToken, "database" => $database, "accesses" => $accesses);
+	public function databaseCreate($database, $accesses, $poolId = NULL, $databaseServerId = NULL) {
+		$data = array("authToken" => $this->authToken, "database" => $database, "accesses" => $accesses, "poolId" => $poolId, "databaseServerId" => $databaseServerId);
 		if (isset($database->accountId)) {
 			$data['ownerAccountId'] = $database->accountId;
 		}

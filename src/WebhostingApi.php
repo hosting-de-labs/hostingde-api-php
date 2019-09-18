@@ -39,8 +39,8 @@ class WebhostingApi extends GenericApi {
 		return array();
 	}
 
-	public function webspaceCreate($webspace, $accesses, $webserverId) {
-		$data = array("authToken" => $this->authToken, "webspace" => $webspace, "accesses" => $accesses, "webserverId" => $webserverId);
+	public function webspaceCreate($webspace, $accesses, $poolId = NULL, $webserverId = NULL) {
+		$data = array("authToken" => $this->authToken, "webspace" => $webspace, "accesses" => $accesses, "poolId" => $poolId, "webserverId" => $webserverId);
 		if (isset($webspace->accountId)) {
 			$data['ownerAccountId'] = $webspace->accountId;
 		}
