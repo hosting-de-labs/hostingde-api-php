@@ -8,7 +8,6 @@ class ExchangeMailbox extends Mailbox {
 	public $firstName;
 	public $lastName;
 	public $organizationId;
-	public $password;
 	public $storageQuota;
 	public $storageQuotaUsed;
 }
