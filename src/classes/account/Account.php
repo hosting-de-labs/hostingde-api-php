@@ -35,14 +35,11 @@ class Account extends GenericObject {
 	public $resellerWhiteLabelSettings;
 	public $rights = array();
 	public $salesTaxID;
-	public $whiteLabelSettings;
 
 	public function _load() {
 		$this->billingSettings = new BillingSettings();
 		$this->dnsSettings = new DnsSettings();
 		$this->domainSettings = new DomainSettings();
 		$this->messageSettings = new MessageSettings();
-		$this->resellerBillingSettings = new ResellerBillingSettings();
-		$this->whiteLabelSettings = new WhiteLabelSettings();
 	}
 }
