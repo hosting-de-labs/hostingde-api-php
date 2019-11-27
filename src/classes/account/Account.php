@@ -32,7 +32,6 @@ class Account extends GenericObject {
 	public $messageSettings;
 	public $resellerBillingSettings;
 	public $resellerDefaults;
-	public $resellerInterfaceCustomizationSettings;
 	public $resellerWhiteLabelSettings;
 	public $rights = array();
 	public $salesTaxID;
