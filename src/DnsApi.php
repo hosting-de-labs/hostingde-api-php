@@ -56,7 +56,7 @@ class DnsApi extends GenericApi {
 		return array();
 	}
 
-	public function zoneCreate($zoneConfig, $records, $nameserverSetId = 0, $useDefaultNameserverSet = false) {
+	public function zoneCreate($zoneConfig, $records, $nameserverSetId = NULL, $useDefaultNameserverSet = false) {
 		$data = array('authToken' => $this->authToken, 'zoneConfig' => $zoneConfig, 'records' => $records, 'nameserverSetId' => $nameserverSetId, 'useDefaultNameserverSet' => $useDefaultNameserverSet);
 		if (isset($zoneConfig->accountId)) {
 			$data['ownerAccountId'] = $zoneConfig->accountId;
@@ -69,7 +69,7 @@ class DnsApi extends GenericApi {
 		return new Zone($this->getValue());
 	}
 
-	public function zoneRecreate($zoneConfig, $records, $nameserverSetId = 0, $useDefaultNameserverSet = false) {
+	public function zoneRecreate($zoneConfig, $records, $nameserverSetId = NULL, $useDefaultNameserverSet = false) {
 		$data = array('authToken' => $this->authToken, 'zoneConfig' => $zoneConfig, 'records' => $records, 'nameserverSetId' => $nameserverSetId, 'useDefaultNameserverSet' => $useDefaultNameserverSet);
 
 		$this->send('zoneRecreate', $data);
