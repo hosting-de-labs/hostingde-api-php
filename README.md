@@ -241,7 +241,7 @@ $domain->addNameserver('ns1.hosting.de');
 $domain->addNameserver('ns2.hosting.de');
 $domain->addNameserver('ns3.hosting.de');
 $transferData = new TransferData();
-$transferData->authCode = '123';
+$transferData->authInfo = '123';
 $domain = $api->domainTransfer($domain, $transferData);
 ```
 $domain is false if an error occurs, otherwise it is a Domain Object (it has now an ID).

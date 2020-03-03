@@ -3,6 +3,6 @@
 namespace Hostingde\API;
 
 class TransferData extends GenericObject {
-	public $authCode = NULL;
+	public $authInfo = NULL;
 	public $foaRecipient = "both";
 }
