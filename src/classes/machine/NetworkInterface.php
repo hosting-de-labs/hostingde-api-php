@@ -12,4 +12,5 @@ class NetworkInterface extends GenericObject {
 	public $mac;
 	public $networkId;
 	public $networkType;
+	public $networkBandwidth;
 }

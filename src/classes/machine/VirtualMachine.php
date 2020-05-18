@@ -20,6 +20,9 @@ class VirtualMachine extends GenericObject {
 	public $managementType;
 	public $memory;
 
+	public $virtualMachineHostId;
+	public $resourcePoolId;
+
 	public $networkInterfaces = array();
 
 	public $osOptimization;
