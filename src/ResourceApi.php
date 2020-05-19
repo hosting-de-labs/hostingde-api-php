@@ -72,4 +72,13 @@ class ResourceApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function routingNetworkCreate($routingNetwork, $ripeAllocationId, $startIpAddress) {
+		$data = array('authToken' => $this->authToken, 'routingNetwork' => $routingNetwork, 'ripeAllocationId' => $ripeAllocationId, 'startIpAddress' => $startIpAddress);
+		$this->send('routingNetworkCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new RoutingNetwork($this->getValue());
+	}
 }
