@@ -38,4 +38,38 @@ class ResourceApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function ripeAllocationsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('ripeAllocationsFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $ripeAllocation) {
+				$return[] = new RipeAllocation($ripeAllocation);
+			}
+			return $return;
+		}
+		return array();
+	}
+
+	public function routingNetworksFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('routingNetworksFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $routingNetwork) {
+				$return[] = new RoutingNetwork($routingNetwork);
+			}
+			return $return;
+		}
+		return array();
+	}
 }
