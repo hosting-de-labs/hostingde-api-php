@@ -90,6 +90,23 @@ class ResourceApi extends GenericApi {
 		return array();
 	}
 
+	public function networksFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('networksFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $network) {
+				$return[] = new Network($network);
+			}
+			return $return;
+		}
+		return array();
+	}
+
 	public function routingNetworkCreate($routingNetwork, $ripeAllocationId, $startIpAddress) {
 		$data = array('authToken' => $this->authToken, 'routingNetwork' => $routingNetwork, 'ripeAllocationId' => $ripeAllocationId, 'startIpAddress' => $startIpAddress);
 		$this->send('routingNetworkCreate', $data);
