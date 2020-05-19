@@ -73,6 +73,23 @@ class ResourceApi extends GenericApi {
 		return array();
 	}
 
+	public function publicIpAddressRangesFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('publicIpAddressRangesFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $publicIpAddressRange) {
+				$return[] = new PublicIpAddressRange($publicIpAddressRange);
+			}
+			return $return;
+		}
+		return array();
+	}
+
 	public function routingNetworkCreate($routingNetwork, $ripeAllocationId, $startIpAddress) {
 		$data = array('authToken' => $this->authToken, 'routingNetwork' => $routingNetwork, 'ripeAllocationId' => $ripeAllocationId, 'startIpAddress' => $startIpAddress);
 		$this->send('routingNetworkCreate', $data);
@@ -80,5 +97,14 @@ class ResourceApi extends GenericApi {
 			return false;
 		}
 		return new RoutingNetwork($this->getValue());
+	}
+
+	public function publicIpAddressRangeCreate($publicIpAddressRange, $startIpAddress, $networkBits) {
+		$data = array('authToken' => $this->authToken, 'publicIpAddressRange' => $publicIpAddressRange, 'startIpAddress' => $startIpAddress, 'networkBits' => $networkBits);
+		$this->send('publicIpAddressRangeCreate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new PublicIpAddressRange($this->getValue());
 	}
 }
