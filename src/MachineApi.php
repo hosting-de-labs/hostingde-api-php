@@ -23,7 +23,7 @@ class MachineApi extends GenericApi {
 	}
 
 	public function virtualMachinePowerOn($virtualMachineId) {
-		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $virtualMachineId);
 
 		$this->send('virtualMachinePowerOn', $data);
 		if ($this->getStatus() == "error") {
@@ -33,7 +33,7 @@ class MachineApi extends GenericApi {
 	}
 
 	public function virtualMachinePowerOff($virtualMachineId) {
-		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $virtualMachineId);
 
 		$this->send('virtualMachinePowerOff', $data);
 		if ($this->getStatus() == "error") {
@@ -43,7 +43,7 @@ class MachineApi extends GenericApi {
 	}
 
 	public function virtualMachineShutdown($virtualMachineId) {
-		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $virtualMachineId);
 
 		$this->send('virtualMachineShutdown', $data);
 		if ($this->getStatus() == "error") {
@@ -53,7 +53,7 @@ class MachineApi extends GenericApi {
 	}
 
 	public function virtualMachineReset($virtualMachineId) {
-		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $virtualMachineId);
 
 		$this->send('virtualMachineReset', $data);
 		if ($this->getStatus() == "error") {
