@@ -21,4 +21,54 @@ class MachineApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function virtualMachinePowerOn($virtualMachineId) {
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+
+		$this->send('virtualMachinePowerOn', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function virtualMachinePowerOff($virtualMachineId) {
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+
+		$this->send('virtualMachinePowerOff', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function virtualMachineShutdown($virtualMachineId) {
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+
+		$this->send('virtualMachineShutdown', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function virtualMachineReset($virtualMachineId) {
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $machineId);
+
+		$this->send('virtualMachineReset', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function virtualMachineReboot($virtualMachineId) {
+		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $virtualMachineId);
+
+		$this->send('virtualMachineReboot', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
