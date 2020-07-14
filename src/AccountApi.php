@@ -59,7 +59,7 @@ class AccountApi extends GenericApi {
 	}
 
 	public function userChangeEmailAddress($userId, $emailAddress, $executingUserPassword) {
-		$data = array('authToken' => $this->authToken, 'user' => $user, 'emailAddress' => $emailAddress, 'executingUserPassword' => $executingUserPassword);
+		$data = array('authToken' => $this->authToken, 'userId' => $userId, 'emailAddress' => $emailAddress, 'executingUserPassword' => $executingUserPassword);
 
 		$this->send('userChangeEmailAddress', $data);
 		if ($this->getStatus() == "error") {
