@@ -48,6 +48,26 @@ class AccountApi extends GenericApi {
 		return array();
 	}
 
+	public function userUpdate($user) {
+		$data = array('authToken' => $this->authToken, 'user' => $user);
+
+		$this->send('userUpdate', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return new User($this->getValue());
+	}
+
+	public function userChangeEmailAddress($userId, $emailAddress, $executingUserPassword) {
+		$data = array('authToken' => $this->authToken, 'user' => $user, 'emailAddress' => $emailAddress, 'executingUserPassword' => $executingUserPassword);
+
+		$this->send('userChangeEmailAddress', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
 	public function rightsTemplatesFind($filter, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
