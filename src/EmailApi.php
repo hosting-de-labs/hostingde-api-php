@@ -23,8 +23,8 @@ class EmailApi extends GenericApi {
 		return array();
 	}
 
-	public function mailboxCreate($mailbox) {
-		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox);
+	public function mailboxCreate($mailbox, $password = "", $poolId = "", $skipDnsCheck = false, $autoconfigureDns = false) {
+		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox, 'password' => $password, 'poolId' => $poolId, 'skipDnsCheck' => $skipDnsCheck, 'autoconfigureDns' => $autoconfigureDns);
 		if (isset($mailbox->accountId)) {
 			$data['ownerAccountId'] = $mailbox->accountId;
 		}
@@ -37,8 +37,8 @@ class EmailApi extends GenericApi {
 		return new $className($this->getValue());
 	}
 
-	public function mailboxUpdate($mailbox) {
-		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox);
+	public function mailboxUpdate($mailbox, $password = "") {
+		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox, 'password' => $password);
 
 		$this->send('mailboxUpdate', $data);
 		if ($this->getStatus() == "error") {
