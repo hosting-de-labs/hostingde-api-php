@@ -41,9 +41,6 @@ class WebhostingApi extends GenericApi {
 
 	public function webspaceCreate($webspace, $accesses, $poolId = NULL, $webserverId = NULL) {
 		$data = array("authToken" => $this->authToken, "webspace" => $webspace, "accesses" => $accesses, "poolId" => $poolId, "webserverId" => $webserverId);
-		if (isset($webspace->accountId)) {
-			$data['ownerAccountId'] = $webspace->accountId;
-		}
 
 		$this->send("webspaceCreate", $data);
 		if ($this->getStatus() == "error") {
@@ -64,9 +61,6 @@ class WebhostingApi extends GenericApi {
 
 	public function vhostCreate($vhost, $phpIni, $setHttpUserPasswords = [], $sslPrivateKey = NULL) {
 		$data = array('authToken' => $this->authToken, 'vhost' => $vhost, 'phpIni' => $phpIni, 'setHttpUserPasswords' => $setHttpUserPasswords, 'sslPrivateKey' => $sslPrivateKey);
-		if (isset($vhost->accountId)) {
-			$data['ownerAccountId'] = $vhost->accountId;
-		}
 
 		$this->send('vhostCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -87,9 +81,6 @@ class WebhostingApi extends GenericApi {
 
 	public function redirectionCreate($redirection) {
 		$data = array('authToken' => $this->authToken, 'redirection' => $redirection);
-		if (isset($redirection->accountId)) {
-			$data['ownerAccountId'] = $redirection->accountId;
-		}
 
 		$this->send('redirectionCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -120,9 +111,6 @@ class WebhostingApi extends GenericApi {
 
 	public function userCreate($user, $password) {
 		$data = array('authToken' => $this->authToken, 'user' => $user, 'password' => $password);
-		if (isset($user->accountId)) {
-			$data['ownerAccountId'] = $user->accountId;
-		}
 
 		$this->send('userCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -133,9 +121,6 @@ class WebhostingApi extends GenericApi {
 
 	public function userDelete($userId) {
 		$data = array('authToken' => $this->authToken, 'userId' => $userId);
-		if (isset($user->accountId)) {
-			$data['ownerAccountId'] = $user->accountId;
-		}
 
 		$this->send('userDelete', $data);
 		if ($this->getStatus() == "error") {

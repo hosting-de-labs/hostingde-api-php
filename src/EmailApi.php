@@ -25,9 +25,6 @@ class EmailApi extends GenericApi {
 
 	public function mailboxCreate($mailbox, $password = "", $poolId = "", $skipDnsCheck = false, $autoconfigureDns = false) {
 		$data = array('authToken' => $this->authToken, 'mailbox' => $mailbox, 'password' => $password, 'poolId' => $poolId, 'skipDnsCheck' => $skipDnsCheck, 'autoconfigureDns' => $autoconfigureDns);
-		if (isset($mailbox->accountId)) {
-			$data['ownerAccountId'] = $mailbox->accountId;
-		}
 
 		$this->send('mailboxCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -97,9 +94,6 @@ class EmailApi extends GenericApi {
 
 	public function organizationCreate($organization) {
 		$data = array('authToken' => $this->authToken, 'organization' => $organization);
-		if (isset($mailbox->accountId)) {
-			$data['ownerAccountId'] = $organization->accountId;
-		}
 
 		$this->send('organizationCreate', $data);
 		if ($this->getStatus() == "error") {

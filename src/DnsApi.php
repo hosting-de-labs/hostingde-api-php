@@ -58,9 +58,6 @@ class DnsApi extends GenericApi {
 
 	public function zoneCreate($zoneConfig, $records, $nameserverSetId = NULL, $useDefaultNameserverSet = false) {
 		$data = array('authToken' => $this->authToken, 'zoneConfig' => $zoneConfig, 'records' => $records, 'nameserverSetId' => $nameserverSetId, 'useDefaultNameserverSet' => $useDefaultNameserverSet);
-		if (isset($zoneConfig->accountId)) {
-			$data['ownerAccountId'] = $zoneConfig->accountId;
-		}
 
 		$this->send('zoneCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -159,9 +156,6 @@ class DnsApi extends GenericApi {
 
 	public function nameserverSetCreate($nameserverSet) {
 		$data = array('authToken' => $this->authToken, 'nameserverSet' => $nameserverSet);
-		if (isset($nameserverSet->accountId)) {
-			$data['ownerAccountId'] = $nameserverSet->accountId;
-		}
 
 		$this->send('nameserverSetCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -236,9 +230,6 @@ class DnsApi extends GenericApi {
 
 	public function templateCreate($dnsTemplate, $recordTemplates) {
 		$data = array('authToken' => $this->authToken, 'dnsTemplate' => $dnsTemplate, 'recordTemplates' => $recordTemplates);
-		if (isset($dnsTemplate->accountId)) {
-			$data['ownerAccountId'] = $dnsTemplate->accountId;
-		}
 
 		$this->send('templateCreate', $data);
 		if ($this->getStatus() == "error") {

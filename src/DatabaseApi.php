@@ -24,9 +24,6 @@ class DatabaseApi extends GenericApi {
 
 	public function databaseCreate($database, $accesses, $poolId = NULL, $databaseServerId = NULL) {
 		$data = array("authToken" => $this->authToken, "database" => $database, "accesses" => $accesses, "poolId" => $poolId, "databaseServerId" => $databaseServerId);
-		if (isset($database->accountId)) {
-			$data['ownerAccountId'] = $database->accountId;
-		}
 
 		$this->send('databaseCreate', $data);
 		if ($this->getStatus() == "error") {
@@ -64,9 +61,6 @@ class DatabaseApi extends GenericApi {
 
 	public function userCreate($user) {
 		$data = array('authToken' => $this->authToken, 'user' => $user);
-		if (isset($user->accountId)) {
-			$data['ownerAccountId'] = $user->accountId;
-		}
 
 		$this->send('userCreate', $data);
 		if ($this->getStatus() == "error") {
