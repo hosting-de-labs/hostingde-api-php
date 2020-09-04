@@ -10,7 +10,7 @@ class GenericObject {
 				if (is_object($this->{$key})) {
 					$className = get_class($this->{$key});
 					$this->{$key} = new $className($object->{$key});
-				} else {
+				} else if (isset($object->{$key})) {
 					$this->set($key, $object->{$key});
 				}
 			}

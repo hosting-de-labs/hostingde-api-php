@@ -55,6 +55,14 @@ require_once __DIR__ . '/src/classes/database/Database.php';
 require_once __DIR__ . '/src/classes/database/DatabaseAccess.php';
 require_once __DIR__ . '/src/classes/database/DatabaseUser.php';
 
+require_once __DIR__ . '/src/classes/machine/DiskInfo.php';
+require_once __DIR__ . '/src/classes/machine/DiskSpecification.php';
+require_once __DIR__ . '/src/classes/machine/IpAddress.php';
+require_once __DIR__ . '/src/classes/machine/NetworkAttachment.php';
+require_once __DIR__ . '/src/classes/machine/NetworkInterface.php';
+require_once __DIR__ . '/src/classes/machine/VirtualMachine.php';
+require_once __DIR__ . '/src/classes/machine/VirtualMachineSpecification.php';
+
 require_once __DIR__ . '/src/classes/billing/ArticlePurchasePrice.php';
 
 require_once __DIR__ . '/src/GenericApi.php';
@@ -67,3 +75,4 @@ require_once __DIR__ . '/src/WebhostingApi.php';
 require_once __DIR__ . '/src/DatabaseApi.php';
 require_once __DIR__ . '/src/BillingApi.php';
 require_once __DIR__ . '/src/ProductApi.php';
+require_once __DIR__ . '/src/MachineApi.php';

@@ -8,8 +8,6 @@ class BillingSettings extends GenericObject {
 	public $paymentType;
 	public $postpaidType;
 	public $purchaseMarkup;
-	public $renewalsReportEnabled;
-	public $renewalsReportHorizonInDays;
-	public $renewalsReportIntervalInDays;
+	public $renewalsReportSettings;
 	public $type = "SubaccountBillingSettings";
 }
