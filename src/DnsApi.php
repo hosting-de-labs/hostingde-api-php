@@ -76,8 +76,8 @@ class DnsApi extends GenericApi {
 		return new Zone($this->getValue());
 	}
 
-	public function zoneUpdate($zoneConfig, $recordsToAdd, $recordsToDelete) {
-		$data = array('authToken' => $this->authToken, 'zoneConfig' => $zoneConfig, 'recordsToAdd' => $recordsToAdd, 'recordsToDelete' => $recordsToDelete);
+	public function zoneUpdate($zoneConfig, $recordsToAdd, $recordsToModify, $recordsToDelete) {
+		$data = array('authToken' => $this->authToken, 'zoneConfig' => $zoneConfig, 'recordsToAdd' => $recordsToAdd, 'recordsToModify' => $recordsToModify, 'recordsToDelete' => $recordsToDelete);
 
 		$this->send('zoneUpdate', $data);
 		if ($this->getStatus() == "error") {
