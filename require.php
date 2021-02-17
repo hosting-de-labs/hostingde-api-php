@@ -47,6 +47,7 @@ require_once __DIR__ . '/src/classes/email/ImapMailbox.php';
 require_once __DIR__ . '/src/classes/email/ExchangeMailbox.php';
 require_once __DIR__ . '/src/classes/email/Forwarder.php';
 require_once __DIR__ . '/src/classes/email/CatchAll.php';
+require_once __DIR__ . '/src/classes/email/SmtpForwarder.php';
 require_once __DIR__ . '/src/classes/email/Organization.php';
 require_once __DIR__ . '/src/classes/email/AutoResponder.php';
 require_once __DIR__ . '/src/classes/email/SpamFilter.php';
