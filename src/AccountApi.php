@@ -31,6 +31,16 @@ class AccountApi extends GenericApi {
 		return new Account($this->getValue());
 	}
 
+	public function subaccountDelete($subaccountId = NULL) {
+		$data = array('authToken' => $this->authToken, 'subaccountId' => $subaccountId);
+
+		$this->send('subaccountDelete', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
 	public function usersFind($filter, $limit = 50, $page = 1, $sort = NULL) {
 		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
 
