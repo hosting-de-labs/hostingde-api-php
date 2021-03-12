@@ -22,6 +22,23 @@ class MachineApi extends GenericApi {
 		return array();
 	}
 
+	public function virtualMachineHostsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('virtualMachineHostsFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $host) {
+				$return[] = new VirtualMachineHost($host);
+			}
+			return $return;
+		}
+		return array();
+	}
+
 	public function virtualMachinePowerOn($virtualMachineId) {
 		$data = array('authToken' => $this->authToken, 'virtualMachineId' => $virtualMachineId);
 
