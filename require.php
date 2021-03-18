@@ -56,7 +56,7 @@ require_once __DIR__ . '/src/classes/database/Database.php';
 require_once __DIR__ . '/src/classes/database/DatabaseAccess.php';
 require_once __DIR__ . '/src/classes/database/DatabaseUser.php';
 
-require_once __DIR__ . '/src/classes/machine/DiskInfo.php';
+require_once __DIR__ . '/src/classes/machine/Disk.php';
 require_once __DIR__ . '/src/classes/machine/DiskSpecification.php';
 require_once __DIR__ . '/src/classes/machine/IpAddress.php';
 require_once __DIR__ . '/src/classes/machine/NetworkAttachment.php';
