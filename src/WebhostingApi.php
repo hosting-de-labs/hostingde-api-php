@@ -39,6 +39,23 @@ class WebhostingApi extends GenericApi {
 		return array();
 	}
 
+	public function redirectionsFind($filter, $limit = 50, $page = 1, $sort = NULL) {
+		$data = array('authToken' => $this->authToken, 'filter' => $filter, 'limit' => $limit, 'page' => $page, 'sort' => $sort);
+
+		$this->send('redirectionsFind', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		if ($this->getValue()->totalEntries > 0) {
+			$return = array();
+			foreach($this->getValue()->data as $redirection) {
+				$return[] = new Redirection($redirection);
+			}
+			return $return;
+		}
+		return array();
+	}
+
 	public function webspaceCreate($webspace, $accesses, $poolId = NULL, $webserverId = NULL) {
 		$data = array("authToken" => $this->authToken, "webspace" => $webspace, "accesses" => $accesses, "poolId" => $poolId, "webserverId" => $webserverId);
 
