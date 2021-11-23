@@ -59,8 +59,8 @@ class DatabaseApi extends GenericApi {
 		return array();
 	}
 
-	public function userCreate($user) {
-		$data = array('authToken' => $this->authToken, 'user' => $user);
+	public function userCreate($user, $password) {
+		$data = array('authToken' => $this->authToken, 'user' => $user, 'password' => $password);
 
 		$this->send('userCreate', $data);
 		if ($this->getStatus() == "error") {
