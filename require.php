@@ -65,6 +65,7 @@ require_once __DIR__ . '/src/classes/machine/NetworkAttachment.php';
 require_once __DIR__ . '/src/classes/machine/NetworkInterface.php';
 require_once __DIR__ . '/src/classes/machine/VirtualMachine.php';
 require_once __DIR__ . '/src/classes/machine/VirtualMachineSpecification.php';
+require_once __DIR__ . '/src/classes/machine/MigrationNetworkAttachment.php';
 
 require_once __DIR__ . '/src/classes/billing/ArticlePurchasePrice.php';
 
