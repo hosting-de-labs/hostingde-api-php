@@ -14,6 +14,7 @@ class CertificateOrder extends GenericObject {
 	public $validitySpanMonth = 12;
 	public $autoRenew = false;
 	public $synchronous = false;
+	public $emailAddresses = array();
 
 	public function setContact($type, $contact) {
 		if ($type == "admin") {

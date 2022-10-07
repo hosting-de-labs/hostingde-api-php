@@ -19,7 +19,7 @@ class SslApi extends GenericApi {
 			}
 			return $return;
 		}
-		return NULL;
+		return array();
 	}
 
 	public function certificateGet($certificateId) {
