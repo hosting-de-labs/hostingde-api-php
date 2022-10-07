@@ -96,6 +96,21 @@ class WebhostingApi extends GenericApi {
 		return new Vhost($this->getValue());
 	}
 
+	public function vhostPhpIniList($vhostId) {
+		$data = array('authToken' => $this->authToken, 'vhostId' => $vhostId);
+
+		$this->send('vhostPhpIniList', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		$phpIni = new PhpIni();
+		$phpIni->vhostId = $vhostId;
+		foreach($this->getValue()->values as $phpIniValue) {
+			$phpIni->values[] = new PhpIniValue($phpIniValue);
+		}
+		return $phpIni;
+	}
+
 	public function redirectionCreate($redirection) {
 		$data = array('authToken' => $this->authToken, 'redirection' => $redirection);
 
