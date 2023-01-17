@@ -185,4 +185,34 @@ class DomainApi extends GenericApi {
 		}
 		return true;
 	}
+
+	public function domainAttachToBundle($domainName, $bundleId) {
+		$data = array('authToken' => $this->authToken, 'domainName' => $domainName, 'bundleId' => $bundleId);
+
+		$this->send('domainAttachToBundle', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function domainChangeBundle($domainName, $bundleId) {
+		$data = array('authToken' => $this->authToken, 'domainName' => $domainName, 'bundleId' => $bundleId);
+
+		$this->send('domainChangeBundle', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+
+	public function domainDetachFromBundle($domainName) {
+		$data = array('authToken' => $this->authToken, 'domainName' => $domainName);
+
+		$this->send('domainDetachFromBundle', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
 }
