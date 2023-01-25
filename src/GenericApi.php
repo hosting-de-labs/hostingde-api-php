@@ -46,6 +46,22 @@ class GenericApi {
 		}
 	}
 
+	public function getServerTransactionId()
+	{
+		if (isset($this->metadata) && isset($this->metadata->serverTransactionId)) {
+			return $this->metadata->serverTransactionId;
+		}
+		return false;
+	}
+
+	public function getClientTransactionId()
+	{
+		if (isset($this->metadata) && isset($this->metadata->clientTransactionId)) {
+			return $this->metadata->clientTransactionId;
+		}
+		return false;
+	}
+
 	public function getStatus()
 	{
 		if (isset($this->lastResponse) && isset($this->lastResponse->status)) {
