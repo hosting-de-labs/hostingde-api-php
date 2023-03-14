@@ -2,7 +2,7 @@
 
 namespace Hostingde\API;
 
-class MailinglList extends Mailbox {
+class MailingList extends Mailbox {
 	public $type = "MailingList";
 	public $name;
 	public $members;
