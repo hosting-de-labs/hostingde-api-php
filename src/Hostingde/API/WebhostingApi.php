@@ -232,4 +232,15 @@ class WebhostingApi extends GenericApi {
         }
         return true;
     }
+
+    public function vhostPurgeRestorable ($vhostId)
+    {
+        $data = array('authToken' => $this->authToken, 'vhostId' => $vhostId);
+
+        $this->send('vhostPurgeRestorable', $data);
+        if($this->getStatus() == "error") {
+            return false;
+        }
+        return true;
+    }
 }
