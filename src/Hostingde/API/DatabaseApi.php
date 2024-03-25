@@ -81,4 +81,24 @@ class DatabaseApi extends GenericApi {
 		}
 		return true;
 	}
+
+    public function databaseDelete($databaseId) {
+        $data = array('authToken' => $this->authToken, 'databaseId' => $databaseId);
+
+        $this->send('databaseDelete', $data);
+        if ($this->getStatus() == "error") {
+            return false;
+        }
+        return true;
+    }
+
+    public function databasePurgeRestorable($databaseId) {
+        $data = array('authToken' => $this->authToken, 'databaseId' => $databaseId);
+
+        $this->send('databasePurgeRestorable', $data);
+        if ($this->getStatus() == "error") {
+            return false;
+        }
+        return true;
+    }
 }
