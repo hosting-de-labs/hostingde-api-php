@@ -204,4 +204,32 @@ class WebhostingApi extends GenericApi {
 		}
 		return true;
 	}
+
+    public function vhostActivateSsl ($vhostId, $sslSettings)
+    {
+        $data = array(
+            'authToken' => $this->authToken,
+            'vhost'     => [
+                'id'          => $vhostId,
+                'sslSettings' => $sslSettings
+            ],
+        );
+
+        $this->send('vhostActivateSsl', $data);
+        if($this->getStatus() == "error") {
+            return false;
+        }
+        return new Vhost($this->getValue());
+    }
+
+    public function vhostDelete ($vhostId)
+    {
+        $data = array('authToken' => $this->authToken, 'vhostId' => $vhostId);
+
+        $this->send('vhostDelete', $data);
+        if($this->getStatus() == "error") {
+            return false;
+        }
+        return true;
+    }
 }
