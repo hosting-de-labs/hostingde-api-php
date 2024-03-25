@@ -1,6 +1,8 @@
 <?php
 
 namespace Hostingde\API;
+use Hostingde\API\Hostingde\API\DomainApi;
+
 require_once("require.php");
 
 $useContact = 'Handle, bspw. XX1234';
