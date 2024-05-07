@@ -1,0 +1,18 @@
+<?php
+
+namespace Hostingde\API\classes\resource;
+
+use Hostingde\API\classes\GenericObject;
+
+class RoutingNetwork extends GenericObject {
+	public $id;
+	public $refIdRipeAllocation;
+	public $dataCenter;
+	public $nameservers;
+	public $ipVersion;
+	public $minIpAddress;
+	public $maxIpAddress;
+	public $comments;
+	public $addDate;
+	public $lastChangeDate;
+}
