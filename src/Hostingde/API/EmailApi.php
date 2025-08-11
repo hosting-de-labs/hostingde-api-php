@@ -17,7 +17,7 @@ class EmailApi extends GenericApi {
 		if ($this->getValue()->totalEntries > 0) {
 			$return = array();
 			foreach($this->getValue()->data as $mailbox) {
-				$className = "\\Hostingde\\API\\".$mailbox->type;
+				$className = "\\Hostingde\\API\\classes\\email\\".$mailbox->type;
 				$return[] = new $className($mailbox);
 			}
 			return $return;
@@ -32,7 +32,7 @@ class EmailApi extends GenericApi {
 		if ($this->getStatus() == "error") {
 			return false;
 		}
-		$className = "\\Hostingde\\API\\".$mailbox->type;
+		$className = "\\Hostingde\\API\\classes\\email\\".$mailbox->type;
 		return new $className($this->getValue());
 	}
 
@@ -43,7 +43,7 @@ class EmailApi extends GenericApi {
 		if ($this->getStatus() == "error") {
 			return false;
 		}
-		$className = "\\Hostingde\\API\\".$mailbox->type;
+		$className = "\\Hostingde\\API\\classes\\email\\".$mailbox->type;
 		return new $className($this->getValue());
 	}
 
