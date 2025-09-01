@@ -72,6 +72,16 @@ class DatabaseApi extends GenericApi {
 		return new DatabaseUser($this->getValue());
 	}
 
+    public function userUpdate($user, $password = "") {
+        $data = array('authToken' => $this->authToken, 'user' => $user, 'password' => $password);
+
+        $this->send('userUpdate', $data);
+        if ($this->getStatus() == "error") {
+            return false;
+        }
+        return new DatabaseUser($this->getValue());
+    }
+
 	public function userDelete($userId) {
 		$data = array('authToken' => $this->authToken, 'userId' => $userId);
 
