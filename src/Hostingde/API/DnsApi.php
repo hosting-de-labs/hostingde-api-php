@@ -113,7 +113,16 @@ class DnsApi extends GenericApi {
 		return true;
 	}
 
+	public function zoneModifyRestrictions($zoneConfigId, $restrictionsToAdd, $restrictionsToDelete, $restrictionsToUpdate) {
+		$data = array('authToken' => $this->authToken, 'zoneConfigId' => $zoneConfigId, 'restrictionsToAdd' => $restrictionsToAdd, 'restrictionsToDelete' => $restrictionsToDelete, 'restrictionsToUpdate' => $restrictionsToUpdate);
 
+		$this->send('zoneModifyRestrictions', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+		return true;
+	}
+	
 	public function changeContent($recordType, $oldContent, $newContent, $includeTemplates = false, $includeSubAccounts = false) {
 		$data = array('authToken' => $this->authToken, 'recordType' => $recordType, 'oldContent' => $oldContent, 'newContent' => $newContent, 'includeTemplates' => $includeTemplates, 'includeSubAccounts' => $includeSubAccounts);
 
