@@ -71,10 +71,6 @@ class BillingApi extends GenericApi {
 			return false;
 		}
 
-		if ($this->getValue()->totalEntries > 0) {
-			$return = $this->getValue()->data;
-			return $return;
-		}
-		return array();
+		return $this->getValue();
 	}
 }
