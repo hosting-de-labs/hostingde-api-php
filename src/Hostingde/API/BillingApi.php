@@ -62,4 +62,19 @@ class BillingApi extends GenericApi {
 		}
 		return array();
 	}
+
+	public function depositGet($ownerAccountId = NULL) {
+		$data = array('authToken' => $this->authToken, 'ownerAccountId' => $ownerAccountId);
+
+		$this->send('depositGet', $data);
+		if ($this->getStatus() == "error") {
+			return false;
+		}
+
+		if ($this->getValue()->totalEntries > 0) {
+			$return = $this->getValue()->data;
+			return $return;
+		}
+		return array();
+	}
 }
