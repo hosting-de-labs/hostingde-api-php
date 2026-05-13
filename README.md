@@ -9,7 +9,7 @@ This is a PHP client library for the hosting.de API.
 - SSL (DV only)
 - E-Mail (full)
 - Webhosting (tbd)
-- Database (tbd)
+- Database (full)
 - Machine (tbd)
 
 Keep in mind: At the moment we have not implemented any job or task API functions. This software is released as a beta. Use it in production on your own risk.
